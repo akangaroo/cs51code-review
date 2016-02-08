@@ -90,4 +90,8 @@ than a call to 'even'.
 let even (x: int) : bool =
     x mod 2 = 0 ;;
 
+let even_list (lst: int list): int list = 
+    List.filter even lst ;;
 
+let even_list_anon (lst: int list): int list =
+    List.filter (fun x -> x mod 2 = 0) lst ;;

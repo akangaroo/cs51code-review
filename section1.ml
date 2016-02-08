@@ -13,7 +13,7 @@
 
 (*
 ......................................................................
-Identifying Types:
+Identifying Types: 
 
 
 ......................................................................
@@ -32,7 +32,8 @@ lists. Make sure that the function handles cases of mismatched list
 lengths by returning None in that case. For example, zip [1;2;3]
 [4;5;6] should evaluate to Some [(1, 4); (2, 5); (3, 6)].
 
-three_zip: 
+three_zip: Now implement a function three_zip that takes in
+three int lists and results a list as a tuple of three ints!
 ......................................................................
 *)
 
@@ -92,4 +93,8 @@ than a call to 'even'.
 let even (x: int) : bool =
     x mod 2 = 0 ;;
 
+let even_list (lst: int list): int list = 
+    List.filter even lst ;;
 
+let even_list_anon (lst: int list): int list =
+    List.filter (fun x -> x mod 2 = 0) lst ;;
