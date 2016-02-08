@@ -2,6 +2,7 @@
  *
  * Goals
  * Git: gain familiarity with the basics of Git (see Git handout)
+ *
  * ML: practice pattern-matching, identifying types, writing
  *     basic functions in OCaml, and using the List module. We will
  *     review options, currying, higher-order functions and 
@@ -11,6 +12,18 @@
  * concise, and beautiful -- not just correct.  Try to make your
  * solutions as simple as possible.  Once you have a version that works,
  * look for ways to simplify it. *)
+
+(* Git commands to know:
+ * git clone [bitbucket repo ssh link] [local directory name]
+ * git pull
+ * git status
+ * git add [filename1] [filename2] ... or git add -A
+ * git commit -am [commit message]
+ * git log
+ * git push
+ * git show
+ *)
+
 
 (*
 ......................................................................
