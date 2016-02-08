@@ -1,7 +1,7 @@
 (* CS51 Section 1: Intro to ML & Git
  *
  * Goals
- * Git: gain familiarity with the basics of Git.
+ * Git: gain familiarity with the basics of Git (see Git handout)
  * ML: practice pattern-matching, identifying types, writing
  *     basic functions in OCaml, and using the List module. We will
  *     review options, currying, higher-order functions and 
@@ -11,14 +11,6 @@
  * concise, and beautiful -- not just correct.  Try to make your
  * solutions as simple as possible.  Once you have a version that works,
  * look for ways to simplify it. *)
-
-(*
-......................................................................
-Identifying Types: 
-
-
-......................................................................
-*)
 
 (*
 ......................................................................
@@ -38,43 +30,42 @@ three int lists and results a list as a tuple of three ints!
 ......................................................................
 *)
 
-let rec max_list (lst : int list) : int option =
-  match lst with
-  | [] -> None
-  | head :: tail ->
-     let max_tail = max_list tail in
-     match max_tail with
-     | None -> Some head
-     | Some max_elt ->
-  if head > max_elt then Some head else max_tail ;;
+let rec max_list (lst : int list) : int option = 
+
+;;
 
 
 let rec zip (x : int list) (y : int list) : ((int * int) list) option =
-  match (x, y) with
-  | ([], []) -> Some []
-  | (xhd :: xtl, yhd :: ytl) ->
-     (match zip xtl ytl with
-      | None -> None
-      | Some ztl -> Some ((xhd, yhd) :: ztl))
-  | (_, _) -> None ;;
+
+;;
 
 
 let rec threezip_short (a:int list) (b:int list) (c:int list) :
     ((int * int * int) list) option =
-  match (a, b, c) with
-  | ([], [], []) -> Some []
-  | (ahd :: atl, bhd :: btl, chd :: ctl) ->
-      (match threezip_short atl btl ctl with
-       | None -> None
-       | Some ntl -> Some ((ahd, bhd, chd) :: ntl))
-  | (_,_,_) -> None ;;
+
+;;
 
 (*
 ......................................................................
 Higher-order functions: functions taking functions as arguments!
 
+square: write a function that takes in an integer and returns the square
+of that integer
+
+twice: write a function that takes in a function and an integer and
+applies that function twice to the integer.
+
+quad: write a function using twice and square that takes in an integer
+and returns the fourth power of that integer
 ......................................................................  
 *)
+
+let square (x : int) : int = x * x ;;
+
+let twice (f : int -> int) (x : int) : int = f (f x) ;; 
+
+let quad (x : int) = twice square ;; 
+
 
 (*
 ......................................................................
@@ -92,13 +83,16 @@ than a call to 'even'.
 *)
 
 let even (x: int) : bool =
-    x mod 2 = 0 ;;
+
+;;
 
 let even_list (lst: int list): int list = 
-    List.filter even lst ;;
+
+;;
 
 let even_list_anon (lst: int list): int list =
-    List.filter (fun x -> x mod 2 = 0) lst ;;
+
+;;
 
 
 (*

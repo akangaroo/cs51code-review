@@ -1,16 +1,16 @@
 (* CS51 Section 1: Intro to ML & Git
  *
  * Goals
- * Git: gain familiarity with the basics of Git.
+ * Git: gain familiarity with the basics of Git (see Git handout)
  * ML: practice pattern-matching, identifying types, writing
  *     basic functions in OCaml, and using the List module. We will
- *     review options, higher-order functions and anonymous functions. 
+ *     review options, currying, higher-order functions and 
+ *     anonymous functions.
  *
  * A goal throughout the semester will be writing code that's clear,
  * concise, and beautiful -- not just correct.  Try to make your
  * solutions as simple as possible.  Once you have a version that works,
  * look for ways to simplify it. *)
-
 
 (*
 ......................................................................
@@ -65,12 +65,27 @@ let rec threezip_short (a:int list) (b:int list) (c:int list) :
 ......................................................................
 Higher-order functions: functions taking functions as arguments!
 
+square: write a function that takes in an integer and returns the square
+of that integer
+
+twice: write a function that takes in a function and an integer and
+applies that function twice to the integer.
+
+quad: write a function using twice and square that takes in an integer
+and returns the fourth power of that integer
+
+List.map and List.fold are some examples of HO functions!
+
 A helpful reference to the List module: 
 http://caml.inria.fr/pub/docs/manual-ocaml/libref/List.html
 ......................................................................  
 *)
 
+let square (x : int) : int = x * x ;;
 
+let twice (f : int -> int) (x : int) : int = f (f x) ;; 
+
+let quad (x : int) = twice square ;; 
 
 (*
 ......................................................................
