@@ -95,3 +95,48 @@ let even_list (lst: int list): int list =
 
 let even_list_anon (lst: int list): int list =
     List.filter (fun x -> x mod 2 = 0) lst ;;
+
+(*
+......................................................................
+Challenge Problems
+......................................................................  
+*)
+
+(* Return the min and max of a list, or None if the list is empty. *)
+let rec bounds (x:int list) : (int * int) option =
+  match x with
+  | [] -> None
+  | hd :: tl ->
+    (match bounds tl with
+    | None -> Some (hd, hd)  (* xtl is empty, so xhd is the only element;
+                it's the min and the max of x. *)
+    | Some (min, max) ->
+      Some ((if hd < min then hd else min),
+            (if hd > max then hd else max))) ;;
+
+(* Given a matrix (list of lists), return the transpose.
+ * The transpose of a matrix interchanges the rows and columns.
+ * For example, transpose [[1;2;3];[4;5;6]];;
+ * where [1;2;3] and [4;5;6] are the rows,
+ * should return [[1;4];[2;5];[3;6]].
+ *
+ * Hint: write an auxiliary function, split, that
+ * returns the first column of a matrix as a list
+ * and the rest of the matrix as a list of rows.
+ *
+ * Behavior of solution is rather odd if m is not a valid matrix.
+ *)
+
+let rec split (m:int list list) : (int list * int list list) option =
+  match m with
+  | [] -> None
+  | [] :: ls -> split ls
+  | (x :: xs) :: ls ->
+    match split ls with
+    | Some (c, ls_rest) -> Some (x :: c, xs :: ls_rest)
+    | None -> Some ([x], [xs]) ;;
+
+let rec transpose (m:int list list) : int list list =
+  match split m with
+  | Some (c, m_rest) -> c :: transpose m_rest
+  | None -> [] ;;

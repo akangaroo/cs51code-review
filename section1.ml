@@ -98,3 +98,36 @@ let even_list (lst: int list): int list =
 
 let even_list_anon (lst: int list): int list =
     List.filter (fun x -> x mod 2 = 0) lst ;;
+
+
+(*
+......................................................................
+Challenge Problems
+......................................................................  
+*)
+
+(* Return the min and max of a list, or None if the list is empty. *)
+let rec bounds (x:int list) : (int * int) option =
+
+;;
+
+(* Given a matrix (list of lists), return the transpose.
+ * The transpose of a matrix interchanges the rows and columns.
+ * For example, transpose [[1;2;3];[4;5;6]];;
+ * where [1;2;3] and [4;5;6] are the rows,
+ * should return [[1;4];[2;5];[3;6]].
+ *
+ * Hint: write an auxiliary function, split, that
+ * returns the first column of a matrix as a list
+ * and the rest of the matrix as a list of rows.
+ *
+ * Behavior of solution is rather odd if m is not a valid matrix.
+ *)
+
+let rec split (m:int list list) : (int list * int list list) option =
+  
+;;
+
+let rec transpose (m:int list list) : int list list =
+
+;;
