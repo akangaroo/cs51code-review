@@ -4,7 +4,8 @@
  * Git: gain familiarity with the basics of Git.
  * ML: practice pattern-matching, identifying types, writing
  *     basic functions in OCaml, and using the List module. We will
- *     review options, higher-order functions and anonymous functions. 
+ *     review options, currying, higher-order functions and 
+ *     anonymous functions. 
  *
  * A goal throughout the semester will be writing code that's clear,
  * concise, and beautiful -- not just correct.  Try to make your
