@@ -22,11 +22,16 @@
  * git log
  * git push
  * git show
+ *
+ * Play with Git here: https://github.com/kevinzhang96/git-demo
  *)
 
 (*
 ......................................................................
 Lab Review:
+
+Helpful explanation of the Option types: 
+https://piazza.com/class/if9069e9cmd4df?cid=167
 
 max_list: Define a function that returns the maximum element in an
 integer list, or None if there are no elements in the list.

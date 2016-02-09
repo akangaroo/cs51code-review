@@ -14,14 +14,21 @@
  * look for ways to simplify it. *)
 
 (* Git commands to know:
- * git clone [bitbucket repo ssh link] [local directory name]
- * git pull
- * git status
- * git add [filename1] [filename2] ... or git add -A
- * git commit -am [commit message]
- * git log
- * git push
- * git show
+ * git clone [bitbucket repo ssh link] [local directory name]: makes a copy
+ of a remote repository to local machine
+ * git pull: pulls changes/updates from remote repository to your local 
+ repository
+ * git status: shows any pending changes
+ * git add [filename1] [filename2] ... or git add -A: add files on local
+ machine to repository so that you can commit them
+ * git commit -am [commit message]: saving a screenshot of the state of
+ your local repository.
+ * git log: shows recent your commits along w/ commit messages.
+ * git push: actually pushes your latest commit to the remote repository
+ * git show: shows changes made in the last commit
+ * git diff: shows differences between local repository and master branch
+ of remote repository
+ * 
  *)
 
 
@@ -47,16 +54,19 @@ let rec max_list (lst : int list) : int option =
 
 ;;
 
-
 let rec zip (x : int list) (y : int list) : ((int * int) list) option =
 
 ;;
-
 
 let rec threezip_short (a:int list) (b:int list) (c:int list) :
     ((int * int * int) list) option =
 
 ;;
+
+(* asserts allow you to include unit tests in your file *)
+
+let () = assert (max_list [] = None)
+let () = assert (max_list [1; 3; 2] = 2)
 
 (*
 ......................................................................
@@ -77,8 +87,9 @@ let square (x : int) : int = x * x ;;
 
 let twice (f : int -> int) (x : int) : int = f (f x) ;; 
 
-let quad (x : int) = twice square ;; 
+let quad (x : int) = twice square x ;; 
 
+let twice_twice (f : int -> int) (x : int) : int = twice f (twice f x) ;;
 
 (*
 ......................................................................
